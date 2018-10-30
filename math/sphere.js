@@ -1,16 +1,22 @@
+var Sphere = function (origin, radius) {
 
-
-
-var Sphere = function(origin, radius) {
-	this.origin = origin;
-	this.radius = radius;
 
 	// todo - make sure origin and radius are replaced with default values if and only
 	//        if they are invalid(i.e. origin & radius should be Vector3) or undefined
 	//        default origin should be zero vector
 	//        default radius should be 1
 
-	this.raycast = function(ray) {
+
+	this.origin = new Vector3(0, 0, 0);
+	this.radius = 1;
+	if (origin instanceof Vector3 || radius instanceof Vector3 || origin != undefined || radius != undefined) {
+		this.origin = origin;
+		this.radius = radius;
+	}
+
+
+
+	this.raycast = function (ray) {
 		// todo determine whether the ray intersects this sphere and where
 
 		// Recommended steps
